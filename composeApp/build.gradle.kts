@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.serialization)
+//    alias(libs.plugins.serialization)
 //    alias(libs.plugins.google.services)
 }
 
@@ -33,21 +33,9 @@ kotlin {
     sourceSets {
         
         androidMain.dependencies {
-//            implementation(compose.preview)
-//            implementation(libs.androidx.activity.compose)
+            implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.compose.navigation)
             implementation(libs.splash.screen)
-            implementation(libs.koin.android)
-            implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viewmodel)
-            implementation(libs.ktor.android.client)
-            implementation(libs.coil3)
-            implementation(libs.coil3.compose)
-            implementation(libs.coil3.compose.core)
-            implementation(libs.coil3.network.ktor)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -57,29 +45,9 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
-//            implementation(libs.androidx.lifecycle.runtimeCompose)
-            implementation(libs.kotlinx.serialization)
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.client.serialization)
-            implementation(libs.koin.core)
-            implementation(libs.messagebar.kmp)
-            implementation(libs.browser.kmp)
-            implementation(libs.multiplatform.settings)
-            implementation(libs.multiplatform.settings.no.arg)
-            implementation(libs.multiplatform.settings.make.observable)
-//            implementation(libs.auth.kmp)
-//            implementation(libs.auth.firebase.kmp)
-//            implementation(libs.kmp.notifier)
-//            implementation(libs.firebase.app)
-//            implementation(libs.firebase.firestore)
-//            implementation(libs.firebase.storage)
-//            implementation(libs.firebase.common)
-        }
-        commonTest.dependencies {
-//            implementation(libs.kotlin.test)
-            implementation(libs.ktor.darwin.client)
+            implementation(libs.androidx.lifecycle.runtime.compose)
+
+            implementation(project(path = ":navigation"))
         }
     }
 }

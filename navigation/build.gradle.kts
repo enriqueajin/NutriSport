@@ -25,7 +25,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "shared"
+            baseName = "navigation"
             isStatic = true
         }
     }
@@ -46,12 +46,14 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+
+            implementation(project(path = ":feature:auth"))
         }
     }
 }
 
 android {
-    namespace = "com.enriquedev.nutrisport.shared"
+    namespace = "com.enriquedev.nutrisport.navigation"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
